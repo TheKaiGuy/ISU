@@ -7,8 +7,9 @@ public class Adventure extends javax.swing.JFrame {
 
     String name="";
     String gender="";
-    boolean far;
+    boolean far=true;
     int currenthp;
+    int count=0;
     Character p;
     LinkedQueue enemies=new LinkedQueue();
     public Adventure() {
@@ -40,8 +41,18 @@ public class Adventure extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnattack.setText("Attack");
+        btnattack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnattackActionPerformed(evt);
+            }
+        });
 
         btnmove.setText("Move Closer");
+        btnmove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmoveActionPerformed(evt);
+            }
+        });
 
         groupclass.add(btnpirate);
         btnpirate.setText("Pirate");
@@ -179,12 +190,52 @@ public class Adventure extends javax.swing.JFrame {
             
     }//GEN-LAST:event_btnstartActionPerformed
 
+    private void btnattackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnattackActionPerformed
+        boolean z=roll();
+        Enemy next = (Enemy)enemies.peekFront();
+        if(far){
+            boolean y=p.isRanged();
+            if(y=false){
+                txtinfo.append("You need to get closer to attack");
+            }
+        }
+        int dmg;
+        int enemyHP;
+        if(z){
+            dmg=p.getDamage();
+            txtinfo.append("Your attack hit for "+dmg+" damage");
+            if(next.takeDamage(dmg)<=0)
+            {
+                txtinfo.append(next.getName()+" has been slain!");
+                enemies.dequeue();
+            }   
+        }
+        else
+        {
+            txtinfo.append("Your attack missed");
+            z=roll();
+            if(z){
+                txtinfo.append("The enemy's attack hit you!");
+                if(p.takeDamage(1)<=0)
+                {
+                    txtinfo.append("You have died..");
+                    btnattack.setEnabled(false);
+                    btnmove.setEnabled(false);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnattackActionPerformed
+
+    private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnmoveActionPerformed
+
     public void makeEnemies(){
-        Enemy A=new Enemy("Alpha",3);
-        Enemy B=new Enemy("Bravo",4);
-        Enemy C=new Enemy("Charlie",4);
-        Enemy D=new Enemy("Delta",5);
-        Enemy E=new Enemy("Echo",7);
+        Enemy A=new Enemy("Grog the Zombie",3);
+        Enemy B=new Enemy("Dr. Feelbad",4);
+        Enemy C=new Enemy("Moe the Clown",4);
+        Enemy D=new Enemy("Isaac the Warlock",5);
+        Enemy E=new Enemy("Satan",7);
         enemies.enqueue(A);
         enemies.enqueue(B);
         enemies.enqueue(C);
@@ -193,7 +244,7 @@ public class Adventure extends javax.swing.JFrame {
     }
     public void battle(){
         Enemy next = (Enemy)enemies.peekFront();
-        txtinfo.append(next.getName()); 
+        txtinfo.append("You spot "+next.getName()+" from far away!"); 
     }
     public boolean roll(){
         Random r=new Random();

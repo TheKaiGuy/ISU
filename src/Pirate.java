@@ -2,7 +2,6 @@
 public class Pirate extends Character{
     public int damage=2;
     public int HP=3;
-    public boolean range=false;
     public Pirate(String nm, String g){
         super(nm,g);
     } 
@@ -14,7 +13,7 @@ public class Pirate extends Character{
 
     @Override
     public boolean isRanged() {
-        return range;
+        return false;
     }
 
 

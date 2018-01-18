@@ -115,11 +115,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Attack"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnattackActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnmove">
       <Properties>
         <Property name="text" type="java.lang.String" value="Move Closer"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmoveActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="btnpirate">
       <Properties>
