@@ -8,12 +8,14 @@ public class Enemy {
        name=nm;
        HP=ip;
     }
-    public int takeDamage(int dmg){
+    public void takeDamage(int dmg){
         HP-=dmg;
-        return HP;
     }
     public String getName(){
         return name;
+    }
+    public int getHP(){
+        return HP;
     }
     
 }

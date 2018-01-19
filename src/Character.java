@@ -7,8 +7,10 @@ public abstract class Character {
         name=nm;
         gender=g;
     }
-    public abstract void upgrade();
+    public abstract String upgrade();
     public abstract boolean isRanged();
+    public abstract String victory();
+    public abstract String death();
  
     final public String getPronoun1(){
         if(gender.equals("M"))
@@ -32,6 +34,9 @@ public abstract class Character {
     }
     final public int getHP(){
         return HP;
+    }
+    final public String getName(){
+        return name;
     }
 }
  
