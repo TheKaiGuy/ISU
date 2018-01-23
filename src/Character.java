@@ -6,6 +6,12 @@ public abstract class Character {
     public Character(String nm, String g){
         name=nm;
         gender=g;
+        HP=3;
+    }
+    public Character(){
+        name="Bob";
+        gender="M";
+        HP=3;
     }
     public abstract String upgrade();
     public abstract boolean isRanged();

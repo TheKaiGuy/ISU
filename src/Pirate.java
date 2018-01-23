@@ -1,10 +1,17 @@
 
 public class Pirate extends Character{
-    public int damage=2;
-    public int HP=3;
+    
     public Pirate(String nm, String g){
         super(nm,g);
+        damage=2;
+        HP=5;
     } 
+    public Pirate()
+    {
+        super();
+        damage=2;
+        HP=5;
+    }
 
     @Override
     public String upgrade() {

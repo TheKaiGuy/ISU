@@ -40,6 +40,7 @@ public class Adventure extends javax.swing.JFrame {
         txthp = new java.awt.TextField();
         jLabel3 = new javax.swing.JLabel();
         txtenemyhp = new java.awt.TextField();
+        btndefault = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,9 +88,16 @@ public class Adventure extends javax.swing.JFrame {
 
         jLabel2.setText("HP:");
 
-        txthp.setText("4");
+        txthp.setText("5");
 
         jLabel3.setText("Enemy HP:");
+
+        btndefault.setText("Start with Default Name/Gender");
+        btndefault.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndefaultActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,21 +107,18 @@ public class Adventure extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnfemale)
                             .addComponent(btnmale)
                             .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnpirate)
                             .addComponent(btnfighter)
                             .addComponent(btnwizard))
-                        .addGap(134, 134, 134))
+                        .addGap(248, 248, 248))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
@@ -122,17 +127,21 @@ public class Adventure extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txthp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtenemyhp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(btnstart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btndefault)
+                        .addGap(103, 103, 103))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(btnattack)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnmove))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(btnstart)))
+                .addGap(124, 124, 124)
+                .addComponent(btnattack)
+                .addGap(26, 26, 26)
+                .addComponent(btnmove)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -155,11 +164,16 @@ public class Adventure extends javax.swing.JFrame {
                         .addComponent(btnfighter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnpirate)))
-                .addGap(22, 22, 22)
-                .addComponent(btnstart)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(btndefault))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnstart)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnattack)
                     .addComponent(btnmove))
@@ -172,7 +186,7 @@ public class Adventure extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(txtenemyhp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txthp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,15 +209,18 @@ public class Adventure extends javax.swing.JFrame {
         }
         if(btnfighter.isSelected()){
             p=new Fighter(name,gender);
-            txtinfo.append("The Champion known as "+name+" has found a worthy challenge and must save the world");
+            txtinfo.append("The Champion known as "+name+" has found a worthy challenge and must save the world\n");
+            txthp.setText(""+p.getHP());
         }
         else if(btnwizard.isSelected()){
             p=new Wizard(name,gender);
-            txtinfo.append("Great Mage "+name+" has paused"+p.getPronoun2()+"studies to save the world");
+            txtinfo.append("Great Mage "+name+" has paused "+p.getPronoun2()+" studies to save the world\n");
+            txthp.setText(""+p.getHP());
         }
         else if(btnpirate.isSelected()){
             p=new Pirate(name,gender);
-            txtinfo.append("Captain "+name+" has stepped off"+p.getPronoun2()+"boat to save the landlubbers");
+            txtinfo.append("Captain "+name+" has stepped off"+p.getPronoun2()+"boat to save the landlubbers.\n");
+            txthp.setText(""+p.getHP());
         }
         else{
             JOptionPane.showMessageDialog(this,"Please select a class");
@@ -214,17 +231,18 @@ public class Adventure extends javax.swing.JFrame {
         btnstart.setEnabled(false);
         btnattack.setEnabled(true);
         btnmove.setEnabled(true);
-            
+        btndefault.setEnabled(false);
     }//GEN-LAST:event_btnstartActionPerformed
 
     private void btnattackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnattackActionPerformed
         boolean z=roll();
         int dmg;
         Enemy next = (Enemy)enemies.peekFront();
+        //System.out.println("" + far);
         if(far){
             boolean y=p.isRanged();
-            if(y=false){
-                txtinfo.append(p.getName()+" needs to get closer to attack.");
+            if(y==false){
+                txtinfo.append(p.getName()+" needs to get closer to attack.\n");
                 return;
             }
             else
@@ -235,11 +253,12 @@ public class Adventure extends javax.swing.JFrame {
         }
         if(z){
             dmg=p.getDamage();
-            txtinfo.append(p.getName()+"'s attack hit for "+dmg+" damage!");
+            txtinfo.append(p.getName()+"'s attack hit for "+dmg+" damage!\n");
             next.takeDamage(dmg);
+            txtenemyhp.setText(""+next.getHP());
             if(next.getHP()<=0)
             {
-                txtinfo.append(next.getName()+" has been slain!");
+                txtinfo.append(next.getName()+" has been slain!\n");
                 enemies.dequeue();
                 battle();
             }
@@ -250,7 +269,7 @@ public class Adventure extends javax.swing.JFrame {
         }
         else
         {
-            txtinfo.append(p.getName()+"'s attack missed");
+            txtinfo.append(p.getName()+"'s attack missed\n");
             enemyattack();
             return;
         }
@@ -262,19 +281,20 @@ public class Adventure extends javax.swing.JFrame {
         int dmg=p.getDamage();
         if(z)
         {
-            txtinfo.append(p.getName()+"'s attack hit for "+dmg+" damage");
+            txtinfo.append(p.getName()+"'s attack hit for "+dmg+" damage\n");
             next.takeDamage(dmg);
+            txtenemyhp.setText(""+next.getHP());
             if(next.getHP()<=0)
                 enemyDeath();
             else
             {
                far=false;
-               txtinfo.append(next.getName()+" takes a turn to close the distance. "+p.getName()+" may attack again.");
+               txtinfo.append(next.getName()+" takes a turn to close the distance. "+p.getName()+" may attack again.\n");
             }
             
         }
         else{
-            txtinfo.append(p.getName()+"'s attack missed");
+            txtinfo.append(p.getName()+"'s attack missed!\n");
             enemyattack();
             return;
         }
@@ -283,19 +303,23 @@ public class Adventure extends javax.swing.JFrame {
         boolean z=roll();
         if(z)
         {
-            txtinfo.append("The enemy's attack hit "+p.getName()+"!");
+            txtinfo.append("The enemy's attack hit "+p.getName()+"!\n");
             p.takeDamage(1);
+            txthp.setText(""+p.getHP());
             if(p.getHP()<=0)
                 playerDeath();
         }
     }
     private void playerDeath(){
-        txtinfo.append(p.getName()+" has been slain..");
-        txtinfo.append(p.getName()+" took down "+count+" baddies before dying");
+        txtinfo.append(p.getName()+" has been slain..\n");
+        txtinfo.append(p.death());
+        txtinfo.append(p.getName()+" took down "+count+" baddies before dying\n");
+        btnmove.setEnabled(false);
+        btnattack.setEnabled(false);
     }
     private void enemyDeath(){
         Enemy next=(Enemy)enemies.peekFront();
-        txtinfo.append(p.getName()+" has slain "+next.getName()+"!");
+        txtinfo.append(p.getName()+" has slain "+next.getName()+"!\n");
         enemies.dequeue();
         count+=1;
         //check size; if zero, game is won
@@ -305,14 +329,47 @@ public class Adventure extends javax.swing.JFrame {
         }
         boolean x=roll();
         if(x)
-            txtinfo.append(p.upgrade());
+        {
+            txtinfo.append("test\n");
+            txtinfo.append(p.upgrade()+"\n");
+        }
         battle();
     }
     private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
         far=false;
         Enemy next=(Enemy)enemies.peekFront();
-        txtinfo.append(p.getName()+" and "+next+" close the distance");
+        txtinfo.append(p.getName()+" and "+next.getName()+" close the distance\n");
     }//GEN-LAST:event_btnmoveActionPerformed
+
+    private void btndefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndefaultActionPerformed
+        name="Bob";
+        gender="M";
+        if(btnfighter.isSelected()){
+            p=new Fighter(name,gender);
+            txtinfo.append("The Champion known as "+name+" has found a worthy challenge and must save the world.\n");
+            txthp.setText(""+p.getHP());
+        }
+        else if(btnwizard.isSelected()){
+            p=new Wizard(name,gender);
+            txtinfo.append("Great Mage "+name+" has paused "+p.getPronoun2()+" studies to save the world.\n");
+            txthp.setText(""+p.getHP());
+        }
+        else if(btnpirate.isSelected()){
+            p=new Pirate(name,gender);
+            txtinfo.append("Captain "+name+" has stepped off"+p.getPronoun2()+"boat to save the landlubbers\n");
+            txthp.setText(""+p.getHP());
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Please select a class");
+            return;
+        }
+        makeEnemies();
+        battle();
+        btnstart.setEnabled(false);
+        btnattack.setEnabled(true);
+        btnmove.setEnabled(true);
+        btndefault.setEnabled(false);
+    }//GEN-LAST:event_btndefaultActionPerformed
 
     public void makeEnemies(){
         Enemy A=new Enemy("Grog the Zombie",3);
@@ -328,15 +385,25 @@ public class Adventure extends javax.swing.JFrame {
     }
     public void battle(){
         far=true;
+        if(enemies.size()==0)
+        {
+            win();
+            return;
+        }
         Enemy next = (Enemy)enemies.peekFront();
-        txtinfo.append(p.getName()+" spots "+next.getName()+" from far away!"); 
+        txtinfo.append(p.getName()+" spots "+next.getName()+" from far away!\n"); 
+        txtenemyhp.setText(""+next.getHP());
     }
-    public boolean roll(){
+    public static boolean roll(){
         Random r=new Random();
         int go=r.nextInt(2)+1;
         if(go==1) return true; //if number chosen is 1, attack hits
         else
             return false; //if number chosen is 2, attack misses
+    }
+    public void win(){
+        String str=p.victory();
+        txtinfo.append(str+"\n");
     }
     
     public static void main(String args[]) {
@@ -373,6 +440,7 @@ public class Adventure extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnattack;
+    private javax.swing.JButton btndefault;
     private javax.swing.JRadioButton btnfemale;
     private javax.swing.JRadioButton btnfighter;
     private javax.swing.JRadioButton btnmale;

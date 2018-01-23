@@ -1,10 +1,17 @@
 
 public class Wizard extends Character{
-    public int HP=3;
-    public int damage=1;
+    
     public Wizard(String nm, String g){
         super(nm,g);
+        HP=5;
+        damage=1;
     } 
+    public Wizard()
+    {
+        super();
+        HP=5;
+        damage=1;
+    }
 
     @Override
     public String upgrade() {
@@ -26,7 +33,8 @@ public class Wizard extends Character{
 
     @Override
     public String death() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String str="Ding dong, the witch is dead, which old witch? "+name+".";
+        return str;
     }
 } 
  

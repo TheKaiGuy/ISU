@@ -1,11 +1,19 @@
 
 public class Fighter extends Character {
-    public int HP=3;
-    public int damage=2;
+   
+   
     public Fighter(String nm, String g){
         super(nm,g);
+        HP=5;
+        damage=2;
     }
-
+    public Fighter()
+    {
+        super();
+        HP=5;
+        damage=2;
+    }
+    
     @Override
     public String upgrade() {
         HP+=1;
@@ -26,7 +34,7 @@ public class Fighter extends Character {
 
     @Override
     public String death() {
-        String str="";
+        String str=name+" is down for the count!";
         return str;
     }
       
